@@ -63,7 +63,7 @@ const checkPortStatus = async (port, host) => {
         } catch (err) {
             console.error(`entered catch with ${err}`)
             socket.destroy();
-            //reject(err);
+            reject(err);
         }
         socket.on('connect', () => {
             available.push(socket.remoteAddress)
