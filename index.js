@@ -18,6 +18,10 @@ const argv = yargs
         alias: 't',
         type: 'array'
     })
+    .option('csv', {
+        description: 'Output the available hosts in csv format.',
+        type: 'boolean'
+    })
     .demandOption('port')
     .help()
     .argv;
@@ -91,7 +95,20 @@ const app = async () => {
     } catch (err) {
         console.error(err)
     }
-    console.log(available)
+    if (available.length > 0){
+        if (argv.csv){
+            let csv = ""
+            for (value of available){
+                csv += `${value},`
+            }
+            csv = csv.substring(0, csv.length - 1)
+            console.log(csv)
+        } else {
+            console.log(available)
+        }
+    } else {
+        console.log("There are no hosts that can connect in given port with targets list.")
+    }
 }
 
 app();
