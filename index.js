@@ -95,7 +95,6 @@ const app = async () => {
             } catch (err) {
                 reject(err)
             }
-            let error = reject();
         }))
     }
     try {
