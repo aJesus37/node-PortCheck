@@ -22,6 +22,11 @@ const argv = yargs
         description: 'Output the available hosts in csv format.',
         type: 'boolean'
     })
+    .option('timeout', {
+        description: 'Time in miliseconds to wait for a positive connection',
+        type: 'number',
+        default: 3000
+    })
     .demandOption('port')
     .help()
     .argv;
@@ -51,7 +56,7 @@ for (network of argv._){
 const checkPortStatus = async (port, host) => {
     promises.push(new Promise((resolve, reject) => {
         let socket = net.Socket();
-        socket.setTimeout(3000);
+        socket.setTimeout(argv.timeout);
         try {
             socket.connect(port, host)
         } catch (err) {
