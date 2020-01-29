@@ -83,9 +83,9 @@ const app = async () => {
     for (address of addresses) {
         promises.push(new Promise((resolve, reject) => {
             try {
-                resolve(checkPortStatus('2266', address))
+                resolve(checkPortStatus(argv.port, address))
             } catch (err) {
-                //reject(err)
+                reject(err)
             }
             let error = reject();
         }))
