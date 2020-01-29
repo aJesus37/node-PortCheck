@@ -13,6 +13,11 @@ const argv = yargs
             alias: 'p',
             type: 'number'
     })
+    .option('target', {
+        description: 'The targets to try to connect, space separated.',
+        alias: 't',
+        type: 'array'
+    })
     .demandOption('port')
     .help()
     .argv;
