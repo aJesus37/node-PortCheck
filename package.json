@@ -1,5 +1,5 @@
 {
-  "name": "checkportstatus",
+  "name": "node-portcheck",
   "version": "1.0.0",
   "description": "Check providen network or ips if a given port is open or not",
   "main": "index.js",
