@@ -28,6 +28,7 @@ const argv = yargs
         default: 3000
     })
     .demandOption('port')
+    .demandOption('target')
     .help()
     .argv;
 
