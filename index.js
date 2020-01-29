@@ -68,6 +68,8 @@ const checkPortStatus = async (port, host) => {
             socket.destroy();
             if(err.code === 'ECONNREFUSED'){
                 resolve()
+            } else if (err.code === 'EHOSTUNREACH'){
+                resolve()
             } else {
                 reject(err)
             }
