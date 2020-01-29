@@ -32,12 +32,12 @@ const argv = yargs
     .help()
     .argv;
 
-if (argv._[0] == null ){
+if (argv.target[0] == null ){
     console.error(`You need to give networks to test.\nExitting...`)
     process.exit(1)
 }
 
-for (network of argv._){
+for (network of argv.target){
     try {
         addresses = Array.prototype.concat(addresses, getIPRange(network))
     } catch {
