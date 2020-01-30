@@ -11,5 +11,6 @@ npm install --no-bin-links
 nexe -r node_modules -t <platform>-<arch>-12.14.1 -o <name_to_output>
 ```
 
-The value of <platform> can be **win**, **linux** or **macos**/**darwing** (in the last, arch not required).
-The value of <arch> can be either **x86** or **x64**.
+The value of `<platform>` can be **win**, **linux** or **macos**/**darwing** (in the last, arch not required).
+
+The value of `<arch>` can be either **x86** or **x64**.
