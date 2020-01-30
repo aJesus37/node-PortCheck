@@ -2,6 +2,7 @@ const net = require('net');
 const getIPRange = require('get-ip-range');
 const yargs = require('yargs');
 const isIp = require('is-ip');
+const package = require('./package.json')
 
 let addresses = []
 let available = [];
@@ -27,8 +28,11 @@ const argv = yargs
         type: 'number',
         default: 3000
     })
-    .demandOption('port')
-    .demandOption('target')
+    .option('info', {
+        description: 'Shows information about the software and quits',
+        alias: 'i',
+        type: 'boolean'
+    })
     .help()
     .argv;
 
