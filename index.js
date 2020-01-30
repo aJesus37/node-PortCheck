@@ -3,6 +3,7 @@ const getIPRange = require('get-ip-range');
 const yargs = require('yargs');
 const isIp = require('is-ip');
 const package = require('./package.json')
+const { exec } = require('child_process');
 
 let addresses = []
 let available = [];
