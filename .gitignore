@@ -106,4 +106,4 @@ dist
 # Visual Studio Code Editor
 .vscode
 # Software builds
-builds
+builds/*
