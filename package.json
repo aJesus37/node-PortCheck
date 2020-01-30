@@ -6,7 +6,15 @@
   "scripts": {
     "test": "node index.js -p 80 -t 127.0.0.1"
   },
-  "author": "aJesus37",
+  "author": {
+    "name": "Anderson de Jesus",
+    "email": "anderson.santos@tutanota.com",
+    "url": "https://ajesus37.github.io/blog/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aJesus37/node-PortCheck"
+  },
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "child_process": "^1.0.2",
