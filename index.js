@@ -42,11 +42,16 @@ const show_info = () => {
     console.log(`Version: ${package.version}`)
     console.log(`Author: ${package.author}`)
 }
+
+const main = () => {
+    if (argv.target){
 if (argv.target[0] == null ){
     console.error(`You need to give networks to test.\nExitting...`)
     process.exit(1)
 }
+    }
 
+    
 for (network of argv.target){
     try {
         addresses = Array.prototype.concat(addresses, getIPRange(network))
@@ -63,7 +68,7 @@ for (network of argv.target){
         }
     }
 }
-
+}
 const checkPortStatus = async (port, host) => {
     promises.push(new Promise((resolve, reject) => {
         let socket = net.Socket();
@@ -128,4 +133,14 @@ const app = async () => {
     }
 }
 
+if(argv.target && argv.port){
+    main()
 app();
+} else if (argv.info){
+    show_info();
+} else {
+    const help = exec("node " + argv.$0 + " --help")
+    help.stdout.on('data', (data) => {
+        console.log(data)
+    })
+}
