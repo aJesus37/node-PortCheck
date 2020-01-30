@@ -3,7 +3,7 @@ const getIPRange = require('get-ip-range');
 const yargs = require('yargs');
 const isIp = require('is-ip');
 const package = require('./package.json')
-const { exec } = require('child_process');
+var path = require('path');
 
 let addresses = []
 let available = [];
@@ -34,6 +34,7 @@ const argv = yargs
         alias: 'i',
         type: 'boolean'
     })
+    .alias('', 'help')
     .implies('target', 'port')
     .implies('port', 'target')
     .help()
@@ -41,7 +42,9 @@ const argv = yargs
 
 const show_info = () => {
     console.log(`Version: ${package.version}`)
-    console.log(`Author: ${package.author}`)
+    console.log(`Author: ${package.author.name}`)
+    console.log(`E-mail: ${package.author.email}`)
+    console.log(`If you need help, type node ${path.basename(__filename)} --help`)
 }
 
 const main = () => {
@@ -51,7 +54,6 @@ const main = () => {
             process.exit(1)
         }
     }
-    
     
     for (network of argv.target){
         try {
@@ -70,6 +72,7 @@ const main = () => {
         }
     }
 }
+
 const checkPortStatus = async (port, host) => {
     promises.push(new Promise((resolve, reject) => {
         let socket = net.Socket();
@@ -137,11 +140,6 @@ const app = async () => {
 if(argv.target && argv.port){
     main()
     app();
-} else if (argv.info){
-    show_info();
 } else {
-    const help = exec("node " + argv.$0 + " --help")
-    help.stdout.on('data', (data) => {
-        console.log(data)
-    })
+    show_info();
 }
