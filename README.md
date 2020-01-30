@@ -15,5 +15,4 @@ The value of `<platform>` can be **win**, **linux** or **macos**/**darwing** (in
 
 The value of `<arch>` can be either **x86** or **x64**.
 
-if you wish to build for all 3 platforms, just run: `npm run build`. The binaries will be stored in the **builds/**
- folder
+if you wish to build for all 3 platforms, just run: `npm run build`. The binaries will be stored in the **builds/** folder
