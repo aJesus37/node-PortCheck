@@ -3,6 +3,8 @@
 . ~/.bashrc
 version=$(cat package.json | grep version | cut -d '"' -f4)
 
+[ ! -d "/dir1/" ] && mkdir builds
+
 if nvm > /dev/null; then { # Check if system hash nvm installed
     if nvm use v12.14.1; then { # Check if node version 12.14.1 is installed in nvm
         if nexe --version > /dev/null; then { # Check if nexe is installed on system
