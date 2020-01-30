@@ -4,7 +4,7 @@
   "description": "Check providen network or ips if a given port is open or not",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node index.js -p 80 -t 127.0.0.1"
   },
   "author": "aJesus37",
   "license": "GPL-3.0-or-later",
