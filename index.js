@@ -36,6 +36,10 @@ const argv = yargs
     .help()
     .argv;
 
+const show_info = () => {
+    console.log(`Version: ${package.version}`)
+    console.log(`Author: ${package.author}`)
+}
 if (argv.target[0] == null ){
     console.error(`You need to give networks to test.\nExitting...`)
     process.exit(1)
