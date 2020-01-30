@@ -33,6 +33,8 @@ const argv = yargs
         alias: 'i',
         type: 'boolean'
     })
+    .implies('target', 'port')
+    .implies('port', 'target')
     .help()
     .argv;
 
