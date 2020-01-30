@@ -46,29 +46,29 @@ const show_info = () => {
 
 const main = () => {
     if (argv.target){
-if (argv.target[0] == null ){
-    console.error(`You need to give networks to test.\nExitting...`)
-    process.exit(1)
-}
-    }
-
-    
-for (network of argv.target){
-    try {
-        addresses = Array.prototype.concat(addresses, getIPRange(network))
-    } catch {
-        try{
-            if (isIp(network)){
-                addresses.push(network)
-            } else {
-                console.error(`The argument ${network} given is not a valid network address. Should be X.X.X.X or X.X.X.X/XX`)
-                process.exit(1)
-            }
-        } catch {
-            console.error(`The argument ${network} given is not a valid network address.  Should be X.X.X.X or X.X.X.X/XX`)
+        if (argv.target[0] == null ){
+            console.error(`You need to give networks to test.\nExitting...`)
+            process.exit(1)
         }
     }
-}
+    
+    
+    for (network of argv.target){
+        try {
+            addresses = Array.prototype.concat(addresses, getIPRange(network))
+        } catch {
+            try{
+                if (isIp(network)){
+                    addresses.push(network)
+                } else {
+                    console.error(`The argument ${network} given is not a valid network address. Should be X.X.X.X or X.X.X.X/XX`)
+                    process.exit(1)
+                }
+            } catch {
+                console.error(`The argument ${network} given is not a valid network address.  Should be X.X.X.X or X.X.X.X/XX`)
+            }
+        }
+    }
 }
 const checkPortStatus = async (port, host) => {
     promises.push(new Promise((resolve, reject) => {
@@ -136,7 +136,7 @@ const app = async () => {
 
 if(argv.target && argv.port){
     main()
-app();
+    app();
 } else if (argv.info){
     show_info();
 } else {
