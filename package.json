@@ -17,7 +17,6 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "child_process": "^1.0.2",
     "get-ip-range": "^2.1.0",
     "is-ip": "^3.1.0",
     "net": "^1.0.2",
