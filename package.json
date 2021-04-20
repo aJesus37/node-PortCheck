@@ -18,7 +18,7 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "get-ip-range": "^2.1.0",
+    "get-ip-range": "^4.0.0",
     "is-ip": "^3.1.0",
     "net": "^1.0.2",
     "yargs": "^16.2.0"
